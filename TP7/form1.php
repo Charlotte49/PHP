@@ -2,7 +2,7 @@
 <?php
 
 
-class formulaire
+class form1
 {
     function __construct($meth, $url) {
         echo "<form method='".$meth."' action='".$url."'>";
@@ -15,7 +15,7 @@ class formulaire
 
     function ajouterbouton($value)
     {
-        echo "<input type='submit' name='$value'/>";
+        echo "<input type='submit' name='$value'/><br><br>";
     }
 
     function getform() {
