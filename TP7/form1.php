@@ -15,7 +15,7 @@ class form1
 
     function ajouterbouton($value)
     {
-        echo "<input type='submit' name='$value'/><br><br>";
+        echo "<input type='submit' name='$value'/><br>";
     }
 
     function getform() {

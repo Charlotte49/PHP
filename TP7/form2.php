@@ -18,7 +18,7 @@ include "form1.php";
 
 class form2 extends form1
 {
-    function ajouterradio($text,$value)
+    final function ajouterradio($text,$value)
     {
         echo "<strong>$text : </strong><input type='radio' name='genre' value='$value'/><br>";
     }
