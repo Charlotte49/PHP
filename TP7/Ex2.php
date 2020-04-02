@@ -12,14 +12,22 @@
 </body>
 </html>
 <?php
-
-    /*interface Shape {
+/*
+    interface Shape {
         function getArea();
     }
 
     class Square implements Shape {
-        private $width=5;
-        private $height=5;
+
+        private $width;
+        private $height;
+
+        function __construct($width,$height)
+        {
+            $this->width=$width;
+            $this->height=$height;
+
+        }
 
         function getArea()
         {
@@ -28,7 +36,13 @@
     }
 
     class Circle implements Shape{
-        private $radius=2;
+        private $radius;
+
+        function __construct($radius)
+        {
+            $this->radius=$radius;
+            echo $this->radius;
+        }
 
         function getArea()
         {
@@ -39,8 +53,8 @@
 
     //TEST1
 
-    $square=new Square();
-    $circle=new Circle();
+    $square=new Square(5,9);
+    $circle=new Circle(12);
     $tab= array($square,$circle);
 
     foreach ($tab as $value)
@@ -57,8 +71,17 @@
     }
 
     class Square extends Shape {
-        private $width=5;
-        private $height=6;
+
+
+        private $width;
+        private $height;
+
+         function __construct($width,$height)
+        {
+            $this->width=$width;
+            $this->height=$height;
+
+        }
 
         function getArea()
         {
@@ -67,7 +90,12 @@
     }
 
     class Circle extends Shape{
-        private $radius=4;
+        private $radius;
+
+        function __construct($radius)
+        {
+            $this->radius=$radius;
+        }
 
         function getArea()
         {
@@ -77,10 +105,9 @@
 
     //TEST2
 
-    $square=new Square();
-    $circle=new Circle();
+    $square=new Square(15,9);
+    $circle=new Circle(13);
     $tab= array($square,$circle);
-
     foreach ($tab as $value)
     {
         get_class($value);
