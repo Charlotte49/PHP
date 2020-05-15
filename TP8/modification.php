@@ -30,5 +30,105 @@
     </div>
 
 </nav>
+<h1>Ajout</h1>
+
+<form action="modification.php" method="post">
+    <div class="form-group">
+        <label>ID de l'auteur</label>
+        <input name="idAuteur" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label>Nom de l'auteur</label>
+        <input name="nomAuteur" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label>Prénom de l'auteur</label>
+        <input name="prenomAuteur" class="form-control" >
+    <div class="form-group">
+        <label>ID du siècle</label>
+        <input name="idSiecle" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label>Siècle</label>
+        <input name="siecle" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label>Citation</label>
+        <input name="citation" class="form-control" >
+    </div>
+
+    <button name="ajout" class="btn btn-primary">Ajouter</button>
 
 <?php
+include "connexpdo.php";
+
+$base = 'pgsql:host=localhost;port=5432;dbname=citations;';
+$user = 'postgres';
+$password = 'isen2018';
+
+
+$idcon=connexpdo($base,$user,$password);
+
+if(isset($_POST["ajout"]))
+{
+    echo "coucou";
+    $idAuteur=$_POST['idAuteur'];
+    $nomAuteur=$_POST['nomAuteur'];
+    $prenomAuteur=$_POST['prenomAuteur'];
+    $idSiecle=$_POST['idSiecle'];
+    $siecle=$_POST['siecle'];
+    $citation= $_POST['citation'];
+
+    $query1 = "SELECT id from auteur where (id='$idAuteur')";
+    $result1 = $idcon->query($query1)->fetchAll();
+    if(empty($result1))
+    {
+        $sql="INSERT INTO auteur (id, nom, prenom) VALUES (?,?,?)";
+        $sqlR = $idcon->prepare($sql);
+        $sqlR->execute([$idAuteur, $nomAuteur, $prenomAuteur]);
+    }
+
+
+    $query2 = "SELECT id from siecle where (id='$idSiecle')";
+    $result2 = $idcon->query($query2)->fetchAll();
+
+    if(empty($result2))
+    {
+        $sql1="INSERT INTO siecle (id, numero) VALUES (?,?)";
+        $sqlR = $idcon->prepare($sql1);
+        $sqlR->execute([$idSiecle, $siecle]);
+    }
+    $idCitation=$idAuteur+$idSiecle;
+    $sql2="INSERT INTO citation (id, phrase, auteurid, siecleid) VALUES (?,?,?,?)";
+    $sqlR = $idcon->prepare($sql2);
+    $sqlR->execute([$idCitation,$citation, $idAuteur,$idSiecle]);
+
+}
+?>
+</form>
+
+<br><br><h1>Suppression</h1>
+
+<form action="modification.php" method="post">
+<?php
+
+$query3 = "SELECT id from citation";
+$result3 = $idcon->query($query3)->fetchAll();
+
+echo "<select class=\"custom-select mr-sm-2\" name='IDCit'><option selected>Sélectionnez l'ID d'une citation</option>";
+foreach($result3 as $data)
+{
+   echo "<option value='$data[0]'> $data[id] </option>";
+}
+echo "</select><br><br><button name='supp' class='btn btn-primary'>Supprimer</button></form>";
+
+if(isset($_POST["supp"]))
+{
+    $idCitation=$_POST['IDCit'];
+    var_dump($idCitation);
+    $deleteQ = 'DELETE from citation WHERE id=?';
+    $deleteR = $idcon->prepare($deleteQ);
+    $deleteR->execute([$idCitation]);
+
+}
+

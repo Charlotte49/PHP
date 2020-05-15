@@ -45,9 +45,13 @@ $nbCitation="SELECT count(*) from citation";
 $res1=$idcon->query($nbCitation)->fetch(PDO::FETCH_OBJ);
 echo "Il y a <strong>$res1->count</strong> citations répertoriées<br><br>Et voici l'une d'entre elles qui est générée aléatoirement :<br><br>";
 
-$id=rand(1,$res1->count);
+$query1="SELECT id from citation";
+$result=$idcon->query($query1)->fetchAll();
 
-$citation="SELECT phrase from citation where id=$id";
+$id=$result[rand(0,$res1->count-1)]['id'];
+
+
+$citation="SELECT phrase from citation where id='$id'";
 $res2=$idcon->query($citation)->fetch(PDO::FETCH_OBJ);
 
 $auteur="SELECT prenom, nom from auteur where id=(SELECT auteurid from citation where id=$id)";
