@@ -71,7 +71,6 @@ $idcon=connexpdo($base,$user,$password);
 
 if(isset($_POST["ajout"]))
 {
-    echo "coucou";
     $idAuteur=$_POST['idAuteur'];
     $nomAuteur=$_POST['nomAuteur'];
     $prenomAuteur=$_POST['prenomAuteur'];
