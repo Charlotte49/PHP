@@ -18,10 +18,6 @@
         <input name="idE" class="form-control" >
     </div>
     <div class="form-group">
-        <label>ID utilisateur</label>
-        <input name="idU" class="form-control" >
-    </div>
-    <div class="form-group">
         <label>Nom</label>
         <input name="nom" class="form-control" >
     </div>
