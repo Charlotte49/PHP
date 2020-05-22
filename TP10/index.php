@@ -10,17 +10,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<h1>Bienvenue sur mon site !</h1><br>
-<form action="viewnewuser.php" method="post">
-<button name="inscription" class="btn btn-primary" >Inscription</button>
-</form>
-<br><br>
-<form action="viewlogin.php" method="post">
-<button name="connexion" class="btn btn-primary" >Connexion</button>
-</form>
-
-<?php
-?>
-
+<div class="container">
+    <h1>Bienvenue sur mon site !</h1><br>
+    <form action="viewnewuser.php" method="post">
+    <button name="inscription" class="btn btn-primary" >Inscription</button>
+    </form>
+    <br><br>
+    <form action="viewlogin.php" method="post">
+    <button name="connexion" class="btn btn-primary" >Connexion</button>
+    </form>
 </body>
+</div>

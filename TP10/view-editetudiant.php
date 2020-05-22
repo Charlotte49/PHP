@@ -10,26 +10,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="container">
+    <h1>Modifier les informations d'un élève :</h1><br>
+    <form action="controller.php?func=editstudent" method="post">
+        <div class="form-group">
+            <label>ID Elève</label>
+            <input name="id" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Nom</label>
+            <input name="nom" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Prénom</label>
+            <input name="prenom" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Note</label>
+            <input name="note" class="form-control" >
+        </div>
 
-<h1>Modifier les informations d'un élève :</h1><br>
-<form action="controller.php?func=editstudent" method="post">
-    <div class="form-group">
-        <label>ID Elève</label>
-        <input name="id" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Nom</label>
-        <input name="nom" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Prénom</label>
-        <input name="prenom" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Note</label>
-        <input name="note" class="form-control" >
-    </div>
-
-    <button name="modifier" class="btn btn-primary" >Modifier</button>
-</form>
-<?php
+        <button name="modifier" class="btn btn-primary" >Modifier</button>
+    </form>
+</div>    <?php

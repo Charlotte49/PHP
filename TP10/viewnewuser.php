@@ -10,33 +10,34 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<h1>Inscription d'un professeur :</h1><br>
-<form action="controller.php?func=adduser" method="post">
-    <div class="form-group">
-        <label>ID utilisateur</label>
-        <input name="id" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Login</label>
-        <input name="login" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Mot de passe</label>
-        <input name="password" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Mail</label>
-        <input name="mail" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Nom</label>
-        <input name="nom" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Prénom</label>
-        <input name="prenom" class="form-control" >
-    </div>
-    <button name="inscription" class="btn btn-primary" >Inscription</button>
-</form>
+<div class="container">
+    <h1>Inscription d'un professeur :</h1><br>
+    <form action="controller.php?func=adduser" method="post">
+        <div class="form-group">
+            <label>ID utilisateur</label>
+            <input name="id" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Login</label>
+            <input name="login" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input name="password" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Mail</label>
+            <input name="mail" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Nom</label>
+            <input name="nom" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Prénom</label>
+            <input name="prenom" class="form-control" >
+        </div>
+        <button name="inscription" class="btn btn-primary" >Inscription</button>
+    </form>
+</div>
 <?php

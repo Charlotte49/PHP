@@ -16,7 +16,6 @@ if(isset($_GET['func']))
 
         if(isset($_POST['inscription']) && !empty($_POST['id']) && !empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['mail']) && !empty($_POST['nom']) && !empty($_POST['prenom']))
         {
-            echo 'blbl';
             $id=$_POST['id'];
             $login=$_POST['login'];
             $password1=password_hash($_POST['password'],PASSWORD_DEFAULT);
@@ -84,7 +83,6 @@ if(isset($_GET['func']))
 
         if(isset($_POST['ajouter']) && !empty($_POST['idE']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['note']))
         {
-            echo 'blbl';
             $idE=$_POST['idE'];
             $idU=$_SESSION['id'];
             $nom=$_POST['nom'];
@@ -117,7 +115,6 @@ function editstudent()
 
     if(isset($_POST['modifier']) && !empty($_POST['id']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['note']))
     {
-        echo 'blbl';
         $id=$_POST['id'];
         $nom=$_POST['nom'];
         $prenom=$_POST['prenom'];

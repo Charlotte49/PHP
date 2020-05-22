@@ -10,18 +10,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="container">
+    <h1>Authentification :</h1><br>
+    <form action="controller.php?func=authentification" method="post">
+        <div class="form-group">
+            <label>Login</label>
+            <input name="login" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input name="password" class="form-control" >
+        </div>
 
-<h1>Authentification :</h1><br>
-<form action="controller.php?func=authentification" method="post">
-    <div class="form-group">
-        <label>Login</label>
-        <input name="login" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Mot de passe</label>
-        <input name="password" class="form-control" >
-    </div>
-
-    <button name="connexion" class="btn btn-primary" >Se connecter</button>
-</form>
-<?php
+        <button name="connexion" class="btn btn-primary" >Se connecter</button>
+    </form>
+</div>
