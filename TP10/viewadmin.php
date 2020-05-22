@@ -10,19 +10,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Liste des étudiants</h1>
-<?php
-include "controller.php?func=display";
-?>
-<form action="controller.php?func=action" method="post">
-    <button name="ajouter" class="btn btn-primary" >Ajouter un étudiant</button>
+<div class="container">
+    <h1>Liste des étudiants</h1>
+    <br>
+ <?php
+    include "controller.php";
+    display();
+    ?>
+    <form action="controller.php?func=action" method="post">
     <div class="form-group">
+        <button name="ajouter" class="btn btn-primary" >Ajouter un étudiant</button>
+        <br>
+        <br>
+        <br>
         <label>ID de l'élève à supprimer</label>
         <input name="idE" class="form-control" >
+        <br>
         <button name="supp" class="btn btn-primary" >Supprimer un étudiant</button>
+        <br>
+        <br>
+        <br>
+        <button name="modifier" class="btn btn-primary" >Modifier les informations d'un étudiant</button>
+        <br>
+        <br>
+        <button name="deco" class="btn btn-primary" >Se déconnecter</button>
     </div>
-    <button name="modifier" class="btn btn-primary" >Modifier les informations d'un étudiant</button>
-    <button name="deco" class="btn btn-primary" >Se déconnecter</button>
 
-</form>
 
+    </form>
+
+</div>

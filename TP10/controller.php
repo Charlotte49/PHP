@@ -2,7 +2,10 @@
 
 include "connexpdo.php";
 session_start();
-$_GET['func']();
+if(isset($_GET['func']))
+{
+    $_GET['func']();
+}
     function adduser()
     {
         $base = 'pgsql:host=localhost;port=5432;dbname=etudiants;';
@@ -52,10 +55,14 @@ $_GET['func']();
             $password1=$_POST['password'];
 
             $query2 = "SELECT id,password from utilisateur where login='$login'";
-            $result2 = $idcon->query($query2)->fetchAll();
+            $result2 = $idcon->query($query2)->fetch();
 
             var_dump(password_verify($password1,$result2['password']));
+
+            var_dump($result2);
+
             var_dump($result2['password']);
+
             if(password_verify($password1,$result2['password']))
             {
                 $_SESSION['id']=$result2['id'];
@@ -116,13 +123,13 @@ function editstudent()
         $prenom=$_POST['prenom'];
         $note=$_POST['note'];
 
-        $query1 ="SELECT (*) from etudiant where id='$id'";
+        $query1 ="SELECT * from etudiant where id='$id'";
         $result1 = $idcon->query($query1)->fetchAll();
         if(!empty($result1))
         {
-            $sql= "UPDATE etudiant SET nom=?,prenom=?,note=? where (id='$id')";
+            $sql= "UPDATE etudiant SET nom='$nom',prenom='$prenom',note='$note' where (id='$id')";
             $sqlR = $idcon->prepare($sql);
-            $sqlR->execute([$id, $nom, $prenom, $note]);
+            $sqlR->execute();
 
             header("Location: http://localhost/PHP/TP10/viewadmin.php");
             exit;
@@ -149,7 +156,7 @@ function display()
     {
         $moy=0;
         $count=0;
-        echo "<table class='table'><thead> <tr><th scope=\"col\">ID</th><th scope=\"col\">Nom</th><th scope=\"col\">Prénom</th></tr> <th scope=\"col\">Note</th></tr>  </thead>  <tbody>";
+        echo "<table class='table'><thead> <tr><th scope=\"col\">ID</th><th scope=\"col\">Nom</th><th scope=\"col\">Prénom</th> <th scope=\"col\">Note</th></tr>  </thead>  <tbody>";
 
         foreach($result3 as $data)
         {
@@ -158,7 +165,7 @@ function display()
             echo    "<tr> <td>".$data['id']."</td> <td>".$data['nom']."</td> <td>".$data['prenom']."</td><td>".$data['note']."</td> </tr>";
         }
         $moy=$moy/$count;
-        echo "</tbody></table><br><br><h3>La note moyenne des étudiants est $moy </h3>";
+        echo "</tbody></table><br><h3>La note moyenne des étudiants est $moy </h3><br><br>";
     }
     else{echo "Résultat introuvable";}
 
